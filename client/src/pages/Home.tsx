@@ -99,9 +99,7 @@ export default function Home() {
       <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-purple-100">
         <div className="container flex items-center justify-between py-4">
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-purple-400 via-pink-400 to-blue-400 flex items-center justify-center">
-              <span className="text-white font-bold text-sm">✦</span>
-            </div>
+            <img src="/logo.avif" alt="DiverseMinds" className="w-8 h-8" />
             <span className="font-bold text-xl text-purple-600">DiverseMinds</span>
           </div>
           <nav className="hidden md:flex items-center gap-8">
@@ -119,23 +117,9 @@ export default function Home() {
       {/* Hero Section */}
       <section className="container py-16 md:py-24">
         <div className="text-center mb-12">
-          <div className="inline-block mb-6">
-            <div className="w-20 h-20 mx-auto mb-4">
-              <svg viewBox="0 0 120 120" className="w-full h-full">
-                {/* Colorful star/circle pattern */}
-                <circle cx="60" cy="30" r="8" fill="#a78bfa" />
-                <circle cx="85" cy="45" r="8" fill="#ef4444" />
-                <circle cx="90" cy="75" r="8" fill="#3b82f6" />
-                <circle cx="60" cy="95" r="8" fill="#fbbf24" />
-                <circle cx="30" cy="75" r="8" fill="#10b981" />
-                <circle cx="35" cy="45" r="8" fill="#06b6d4" />
-                {/* Center circle */}
-                <circle cx="60" cy="60" r="6" fill="#a78bfa" opacity="0.5" />
-              </svg>
-            </div>
-            <h2 className="text-sm font-bold text-gray-800 tracking-wider">DIVERSEMINDS</h2>
-            <p className="text-xs text-gray-600">SPECIAL NEEDS CONSULT LTD.</p>
-          </div>
+          <img src="/logo.avif" alt="DiverseMinds Logo" className="w-24 h-24 mx-auto mb-4" />
+          <h2 className="text-sm font-bold text-gray-800 tracking-wider">DIVERSEMINDS</h2>
+          <p className="text-xs text-gray-600">SPECIAL NEEDS CONSULT LTD.</p>
         </div>
 
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-6 leading-tight">
