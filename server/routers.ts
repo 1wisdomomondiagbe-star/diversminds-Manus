@@ -253,11 +253,7 @@ async function sendWhatsAppNotification(phone: string, name: string) {
 async function sendWebhookNotification(data: any) {
   try {
     const webhookUrl = process.env.WEBHOOK_URL;
-
-    if (!webhookUrl) {
-      console.warn("[Webhook] No webhook URL configured");
-      return;
-    }
+    const n8nWebhookUrl = "https://henryevil.app.n8n.cloud/webhook-test/diverseminds";
 
     const payload = {
       parentName: data.parentName,
@@ -277,9 +273,24 @@ async function sendWebhookNotification(data: any) {
       timestamp: new Date().toISOString(),
     };
 
-    await axios.post(webhookUrl, payload);
-    console.log(`[Webhook] Data sent to ${webhookUrl}`);
+    // Send to Webflow webhook (if configured)
+    if (webhookUrl) {
+      try {
+        await axios.post(webhookUrl, payload);
+        console.log(`[Webhook] Data sent to Webflow: ${webhookUrl}`);
+      } catch (error) {
+        console.error("[Webhook] Failed to send to Webflow:", error);
+      }
+    }
+
+    // Send to n8n webhook
+    try {
+      await axios.post(n8nWebhookUrl, payload);
+      console.log(`[Webhook] Data sent to n8n: ${n8nWebhookUrl}`);
+    } catch (error) {
+      console.error("[Webhook] Failed to send to n8n:", error);
+    }
   } catch (error) {
-    console.error("[Webhook] Failed to send notification:", error);
+    console.error("[Webhook] Failed to process notification:", error);
   }
 }
